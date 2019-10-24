@@ -3,9 +3,12 @@
     internal class Bartender
     {
         Patron currentPatron;
+        Glass currentGlass;
+        Bar bar;
 
-        public Bartender()
+        public Bartender(Bar bar)
         {
+            this.bar = bar;
         }
     }
 }
