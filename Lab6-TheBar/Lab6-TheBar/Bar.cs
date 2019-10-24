@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
+
 namespace Lab6_TheBar
 {
     internal class Bar
@@ -10,6 +11,15 @@ namespace Lab6_TheBar
 
         public Bar(MainWindow mainWindow)
         {
+        }
+
+        public void OpenBar()
+        {
+            this.isOpen = true;
+        }
+        public void CloseBar()
+        {
+            this.isOpen = false;
         }
     }
 }

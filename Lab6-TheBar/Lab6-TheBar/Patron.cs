@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Lab6_TheBar
 {
@@ -6,10 +8,22 @@ namespace Lab6_TheBar
     {
         public Patron(Bar bar)
         {
+            
+            
             Task.Run(() => 
             {
-
+                while (bar.isOpen)
+                {
+                    LookForTable();
+                    Thread.Sleep(5000);
+                }
             });
+        
+        }
+
+        private void LookForTable()
+        {
+            //Look for table
         }
     }
 }

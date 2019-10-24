@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Lab6_TheBar
 {
@@ -15,7 +16,8 @@ namespace Lab6_TheBar
         {
             Task.Run(() => 
             {
-                // Create 
+                Thread.Sleep(3000);
+                new Patron(bar);
             });
         }
     }
