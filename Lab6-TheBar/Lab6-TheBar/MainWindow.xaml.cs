@@ -23,6 +23,7 @@ namespace Lab6_TheBar
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
