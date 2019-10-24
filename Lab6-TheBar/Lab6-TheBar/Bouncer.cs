@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Lab6_TheBar
@@ -14,11 +15,12 @@ namespace Lab6_TheBar
 
         public void LetInPatron()
         {
+            Random rng = new Random();
             while (bar.isOpen)
             {
                 Task.Run(() => 
                 {
-                    Thread.Sleep(3000);
+                    Thread.Sleep(rng.Next(3000, 10001));
                     new Patron(bar);
                 });
             }
