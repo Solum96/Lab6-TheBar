@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab6_TheBar"
         mc:Ignorable="d"
-        Title="Ye Old Crusty Sock" Height="450" Width="925">
-    <Grid Margin="0,0,0,0">
+        Title="Ye Old Crusty Sock" Height="400" Width="925">
+    <Grid Margin="0,0,0,0" Height="425" VerticalAlignment="Bottom">
         <ListBox x:Name="bartenderLog" HorizontalAlignment="Left" Height="212" Margin="10,100,0,0" VerticalAlignment="Top" Width="221"/>
         <ListBox x:Name="waiterLog" HorizontalAlignment="Left" Height="212" Margin="236,100,0,0" VerticalAlignment="Top" Width="221"/>
         <ListBox x:Name="patronLog" HorizontalAlignment="Left" Height="212" Margin="462,100,0,0" VerticalAlignment="Top" Width="221"/>
