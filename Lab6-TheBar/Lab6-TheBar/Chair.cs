@@ -1,6 +1,6 @@
 ﻿namespace Lab6_TheBar
 {
-    internal class Table
+    internal class Chair
     {
     }
 }

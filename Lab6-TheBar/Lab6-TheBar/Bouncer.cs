@@ -14,11 +14,14 @@ namespace Lab6_TheBar
 
         public void LetInPatron()
         {
-            Task.Run(() => 
+            while (bar.isOpen)
             {
-                Thread.Sleep(3000);
-                new Patron(bar);
-            });
+                Task.Run(() => 
+                {
+                    Thread.Sleep(3000);
+                    new Patron(bar);
+                });
+            }
         }
     }
 }

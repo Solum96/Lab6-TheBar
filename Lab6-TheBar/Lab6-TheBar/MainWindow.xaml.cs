@@ -20,10 +20,16 @@ namespace Lab6_TheBar
     /// </summary>
     public partial class MainWindow : Window
     {
+        Bar bar;
         public MainWindow()
         {
             InitializeComponent();
-            Bar bar = new Bar(this);
+            bar = new Bar(this);
+        }
+
+        private void RunButtonClick(object sender, RoutedEventArgs e)
+        {
+            bar.OpenBar();
         }
     }
 }
