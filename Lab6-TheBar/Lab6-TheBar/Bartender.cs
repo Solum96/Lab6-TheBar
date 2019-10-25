@@ -33,7 +33,11 @@ namespace Lab6_TheBar
 
         private void WaitForGlass()
         {
-            //TODO: Wait for glass
+            while (bar.glasses.IsEmpty)
+            {
+                Thread.Sleep(1000);
+            }
+            //TODO: Get glass from Bar
         }
 
         private void WaitForPatron()
