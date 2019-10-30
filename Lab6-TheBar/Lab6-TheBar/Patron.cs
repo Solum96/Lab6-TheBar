@@ -48,6 +48,8 @@ namespace Lab6_TheBar
         {
             bar.dirtyGlasses.Add(drinkingGlass);
             drinkingGlass = null;
+            bar.chairs.Enqueue(seat);
+            seat = null;
             bar.servedPatrons.TryRemove(this.name, out Patron patron);
         }
 
