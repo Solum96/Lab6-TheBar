@@ -25,10 +25,12 @@ namespace Lab6_TheBar
         {
             InitializeComponent();
             bar = new Bar(this);
+            runButton.Click += RunButtonClick;
         }
 
         private void RunButtonClick(object sender, RoutedEventArgs e)
         {
+            runButton.IsEnabled = false;
             bar.OpenBar();
         }
     }

@@ -27,7 +27,7 @@ namespace Lab6_TheBar
         {
             Task.Run(() => 
             {
-                name = nameArray[nameRandomizer.Next(0, name.Length)];
+                name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
                 while (bar.isOpen)
                 {
                     Thread.Sleep(1000);
