@@ -11,6 +11,7 @@ namespace Lab6_TheBar
     {
         Bouncer bouncer;
         Bartender bartender;
+        Waiter waiter;
         int numberOfGlass = 8;
         int numberOfChairs = 9;
         public const int guestCapacity = 50;
@@ -40,6 +41,7 @@ namespace Lab6_TheBar
                 this.IsOpen = true;
                 this.bouncer = new Bouncer(this);
                 this.bartender = new Bartender(this);
+                this.waiter = new Waiter(this);
                 Thread.Sleep(120 * 1000);
                 CloseBar();
             });
