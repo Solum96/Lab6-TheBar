@@ -30,12 +30,12 @@ namespace Lab6_TheBar
 
         public void LetInPatron()
         {
-            if(bar.guests.Count < Bar.guestCapacity)
+            if(bar.waitingGuests.Count + bar.servedPatrons.Count < Bar.guestCapacity)
             {
                 Patron temp;
                 patronQueue.TryDequeue(out temp);
                 Thread.Sleep(rng.Next(3000, 10001));
-                bar.guests.Add(temp);
+                bar.waitingGuests.Enqueue(temp);
             }
         }
     }
