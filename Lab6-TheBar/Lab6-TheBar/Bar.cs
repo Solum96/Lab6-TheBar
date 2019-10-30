@@ -36,12 +36,12 @@ namespace Lab6_TheBar
 
         public void OpenBar()
         {
+            this.IsOpen = true;
+            this.bouncer = new Bouncer(this);
+            this.bartender = new Bartender(this);
+            this.waiter = new Waiter(this);
             Task.Run(() => 
             {
-                this.IsOpen = true;
-                this.bouncer = new Bouncer(this);
-                this.bartender = new Bartender(this);
-                this.waiter = new Waiter(this);
                 Thread.Sleep(120 * 1000);
                 CloseBar();
             });
