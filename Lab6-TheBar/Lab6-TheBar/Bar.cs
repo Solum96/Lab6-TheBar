@@ -11,7 +11,9 @@ namespace Lab6_TheBar
         int numberOfChairs = 9;
         public ConcurrentStack<Glass> glasses;
         public ConcurrentQueue<Chair> chairs;
+        public ConcurrentBag<Patron> guests;
         public bool isOpen { get; set; }
+        public const int guestCapacity = 50;
 
         public Bar(MainWindow mainWindow)
         {
