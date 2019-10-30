@@ -15,7 +15,7 @@ namespace Lab6_TheBar
             this.bar = bar;
             Task.Run(() => 
             {
-                while(bar.isOpen)
+                while(bar.IsOpen)
                 {
                     WaitForPatron();
                     Thread.Sleep(3000);

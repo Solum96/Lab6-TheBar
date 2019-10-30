@@ -13,11 +13,11 @@ namespace Lab6_TheBar
         Bartender bartender;
         int numberOfGlass = 8;
         int numberOfChairs = 9;
+        public const int guestCapacity = 50;
         public ConcurrentStack<Glass> glasses = new ConcurrentStack<Glass>();
         public ConcurrentQueue<Chair> chairs = new ConcurrentQueue<Chair>();
         public ConcurrentBag<Patron> guests = new ConcurrentBag<Patron>();
-        public bool isOpen { get; set; }
-        public const int guestCapacity = 50;
+        public bool IsOpen { get; set; }
 
         public Bar(MainWindow mainWindow)
         {
@@ -35,7 +35,7 @@ namespace Lab6_TheBar
         {
             Task.Run(() => 
             {
-                this.isOpen = true;
+                this.IsOpen = true;
                 this.bouncer = new Bouncer(this);
                 this.bartender = new Bartender(this);
                 Thread.Sleep(120 * 1000);
@@ -44,7 +44,7 @@ namespace Lab6_TheBar
         }
         public void CloseBar()
         {
-            this.isOpen = false;
+            this.IsOpen = false;
         }
     }
 }
