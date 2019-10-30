@@ -9,7 +9,7 @@ namespace Lab6_TheBar
     {
         Bar bar;
         Random rng = new Random();
-        ConcurrentQueue<Patron> patronQueue;
+        ConcurrentQueue<Patron> patronQueue = new ConcurrentQueue<Patron>();
 
         public Bouncer(Bar bar)
         {
