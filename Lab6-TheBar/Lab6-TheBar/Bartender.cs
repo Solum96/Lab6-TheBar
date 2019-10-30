@@ -42,7 +42,8 @@ namespace Lab6_TheBar
 
         private void WaitForPatron()
         {
-            // TODO: Wait for patron
+            while(bar.guests.IsEmpty) { Thread.Sleep(1000); }
+            bar.guests.TryDequeue(out currentPatron);
         }
     }
 }
