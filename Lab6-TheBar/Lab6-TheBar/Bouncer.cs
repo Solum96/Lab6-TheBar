@@ -14,7 +14,7 @@ namespace Lab6_TheBar
         public Bouncer(Bar bar)
         {
             this.bar = bar;
-            while (bar.isOpen)
+            while (bar.IsOpen)
             {
                 Task.Run(() => 
                 {

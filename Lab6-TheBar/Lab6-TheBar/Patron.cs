@@ -28,7 +28,7 @@ namespace Lab6_TheBar
             Task.Run(() => 
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
-                while (bar.isOpen)
+                while (bar.IsOpen)
                 {
                     Thread.Sleep(1000);
                     LookForChair();
