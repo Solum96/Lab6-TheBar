@@ -9,33 +9,25 @@ namespace Lab6_TheBar
     {
         Bar bar;
         Random rng = new Random();
-        ConcurrentQueue<Patron> patronQueue = new ConcurrentQueue<Patron>();
 
         public Bouncer(Bar bar)
         {
             this.bar = bar;
-            while (bar.IsOpen)
+            Task.Run(() => 
             {
-                Task.Run(() => 
+                while (bar.IsOpen)
                 {
-                    Thread.Sleep(rng.Next(2000, 5000));
-                    patronQueue.Enqueue(new Patron(bar));
-                });
-                Task.Run(() => 
-                {
-                    if(!patronQueue.IsEmpty) LetInPatron();
-                });
-            }
+                    LetInPatron();
+                }
+            });
         }
 
         public void LetInPatron()
         {
-            if(bar.guests.Count < Bar.guestCapacity)
+            if(!bar.chairs.IsEmpty)
             {
-                Patron temp;
-                patronQueue.TryDequeue(out temp);
                 Thread.Sleep(rng.Next(3000, 10001));
-                bar.guests.Add(temp);
+                bar.waitingGuests.Enqueue(new Patron(bar));
             }
         }
     }

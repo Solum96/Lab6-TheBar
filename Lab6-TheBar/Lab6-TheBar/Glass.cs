@@ -1,6 +1,6 @@
 ﻿namespace Lab6_TheBar
 {
-    internal class Glass
+    public class Glass
     {
     }
 }

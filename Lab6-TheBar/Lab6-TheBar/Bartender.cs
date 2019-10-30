@@ -28,7 +28,9 @@ namespace Lab6_TheBar
 
         private void ServePatron()
         {
-            //TODO: Serve Patron
+            currentPatron.drinkingGlass = currentGlass;
+            currentGlass = null;
+            bar.servedPatrons.TryAdd(currentPatron.name, currentPatron);
         }
 
         private void WaitForGlass()
@@ -42,8 +44,8 @@ namespace Lab6_TheBar
 
         private void WaitForPatron()
         {
-            while(bar.guests.IsEmpty) { Thread.Sleep(1000); }
-            bar.guests.TryDequeue(out currentPatron);
+            while(bar.waitingGuests.IsEmpty) { Thread.Sleep(1000); }
+            bar.waitingGuests.TryDequeue(out currentPatron);
         }
     }
 }
