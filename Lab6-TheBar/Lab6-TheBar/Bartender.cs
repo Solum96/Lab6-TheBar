@@ -37,7 +37,7 @@ namespace Lab6_TheBar
             {
                 Thread.Sleep(1000);
             }
-            //TODO: Get glass from Bar
+            bar.glasses.TryPop(out currentGlass);
         }
 
         private void WaitForPatron()
