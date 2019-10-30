@@ -28,7 +28,9 @@ namespace Lab6_TheBar
 
         private void ServePatron()
         {
-            //TODO: Serve Patron
+            currentPatron.drinkingGlass = currentGlass;
+            currentGlass = null;
+            bar.servedPatrons.TryAdd(currentPatron.name, currentPatron);
         }
 
         private void WaitForGlass()

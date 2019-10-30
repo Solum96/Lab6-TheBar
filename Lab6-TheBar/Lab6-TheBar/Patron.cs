@@ -7,7 +7,10 @@ namespace Lab6_TheBar
 {
     internal class Patron
     {
-        string name;
+        Bar bar;
+        public Glass drinkingGlass;
+        public Chair seat;
+        public string name { get; set; }
         string[] nameArray = 
         {
             "Bengt",
@@ -25,6 +28,7 @@ namespace Lab6_TheBar
 
         public Patron(Bar bar)
         {
+            this.bar = bar;
             Task.Run(() => 
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
@@ -33,26 +37,30 @@ namespace Lab6_TheBar
                     Thread.Sleep(1000);
                     LookForChair();
                     Thread.Sleep(4000);
-                    BuyBeer();
+                    while (drinkingGlass == null) { }
+                    DrinkBeer();
                     LeaveBar();
                 }
             });
-        
         }
 
         private void LeaveBar()
         {
-            //BuyBeer
+            bar.dirtyGlasses.Add(drinkingGlass);
+            drinkingGlass = null;
+            bar.servedPatrons.TryRemove(this.name, out Patron patron);
         }
 
-        private void BuyBeer()
+        private void DrinkBeer()
         {
-            //BuyBeer
+            Random rng = new Random();
+            Thread.Sleep(rng.Next(10000, 30000));
         }
 
         private void LookForChair()
         {
-            //Look for table
+            while(bar.chairs.IsEmpty) { }
+            bar.chairs.TryDequeue(out seat);
         }
     }
 }
