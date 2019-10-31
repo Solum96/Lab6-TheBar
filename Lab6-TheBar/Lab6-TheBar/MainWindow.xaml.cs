@@ -37,5 +37,26 @@ namespace Lab6_TheBar
             runButton.IsEnabled = false;
             bar.OpenBar();
         }
+        public void BartenderLog(string message)
+        {
+            Dispatcher.Invoke(() => 
+            {
+                Logger.bartenderList.Add(message);
+            });
+        }
+        public void WaiterLog(string message)
+        {
+            Dispatcher.Invoke(() => 
+            {
+                Logger.waiterList.Add(message);
+            });
+        }
+        public void PatronLog(string message)
+        {
+            Dispatcher.Invoke(()=> 
+            {
+                Logger.patronList.Add(message);
+            });
+        }
     }
 }

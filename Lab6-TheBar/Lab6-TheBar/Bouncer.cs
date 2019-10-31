@@ -7,11 +7,13 @@ namespace Lab6_TheBar
 {
     internal class Bouncer
     {
+        MainWindow mainWindow;
         Bar bar;
         Random rng = new Random();
 
-        public Bouncer(Bar bar)
+        public Bouncer(Bar bar, MainWindow mainWindow)
         {
+            this.mainWindow = mainWindow;
             this.bar = bar;
             Task.Run(() => 
             {
@@ -27,7 +29,7 @@ namespace Lab6_TheBar
             if(!bar.chairs.IsEmpty)
             {
                 Thread.Sleep(rng.Next(3000, 10001));
-                bar.waitingGuests.Enqueue(new Patron(bar));
+                bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
             }
         }
     }

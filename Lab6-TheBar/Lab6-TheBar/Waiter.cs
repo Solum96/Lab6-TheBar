@@ -7,9 +7,11 @@ namespace Lab6_TheBar
     internal class Waiter
     {
         Bar bar;
+        MainWindow mainWindow;
         Glass[] dirtyGlasses = new Glass[6];
-        public Waiter(Bar bar)
+        public Waiter(Bar bar, MainWindow mainWindow)
         {
+            this.mainWindow = mainWindow;
             this.bar = bar;
             Task.Run(() => 
             {
@@ -27,23 +29,27 @@ namespace Lab6_TheBar
 
         private void CollectGlass()
         {
-            for(int i = 0; i < dirtyGlasses.Length; i++)
+            mainWindow.WaiterLog("The Waiter starts collecting glasses.");
+            for (int i = 0; i < dirtyGlasses.Length; i++)
             {
                 bar.dirtyGlasses.TryTake(out dirtyGlasses[i]);
             }
+            Thread.Sleep(10000);
         }
 
         private void CleanGlass()
         {
+            mainWindow.WaiterLog("Waiterboii starts washing up.");
             for(int i = 0; i < dirtyGlasses.Length; i++)
             {
                 if(dirtyGlasses[i] != null)
                 {
-                    Thread.Sleep(15000);
                     bar.glasses.Push(dirtyGlasses[i]);
                     dirtyGlasses[i] = null;
+                    Thread.Sleep(15000);
                 }
             }
+            mainWindow.WaiterLog("All done!");
         }
     }
 }
