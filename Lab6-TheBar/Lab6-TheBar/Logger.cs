@@ -6,9 +6,9 @@ namespace Lab6_TheBar
     {
         MainWindow mainWindow;
 
-        public static ObservableCollection<string> bartenderList;
-        public static ObservableCollection<string> waiterList;
-        public static ObservableCollection<string> patronList;
+        public static ObservableCollection<string> bartenderList = new ObservableCollection<string>();
+        public static ObservableCollection<string> waiterList = new ObservableCollection<string>();
+        public static ObservableCollection<string> patronList = new ObservableCollection<string>();
 
         public Logger(MainWindow mainWindow)
         {

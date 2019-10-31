@@ -9,6 +9,7 @@ namespace Lab6_TheBar
 {
     internal class Bar
     {
+        MainWindow mainWindow;
         Bouncer bouncer;
         Bartender bartender;
         Waiter waiter;
@@ -24,6 +25,7 @@ namespace Lab6_TheBar
 
         public Bar(MainWindow mainWindow)
         {
+            this.mainWindow = mainWindow;
             for (int i = 0; i < numberOfGlass; i++)
             {
                 glasses.Push(new Glass());
@@ -37,9 +39,9 @@ namespace Lab6_TheBar
         public void OpenBar()
         {
             this.IsOpen = true;
-            this.bouncer = new Bouncer(this);
-            this.bartender = new Bartender(this);
-            this.waiter = new Waiter(this);
+            this.bouncer = new Bouncer(this, mainWindow);
+            this.bartender = new Bartender(this, mainWindow);
+            this.waiter = new Waiter(this, mainWindow);
             Task.Run(() => 
             {
                 Thread.Sleep(120 * 1000);

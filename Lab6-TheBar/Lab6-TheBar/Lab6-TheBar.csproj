@@ -58,6 +58,7 @@
     <Compile Include="Bar.cs" />
     <Compile Include="Glass.cs" />
     <Compile Include="Chair.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Waiter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
