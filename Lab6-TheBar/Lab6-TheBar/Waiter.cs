@@ -20,6 +20,7 @@ namespace Lab6_TheBar
                         CollectGlass();
                         CleanGlass();
                     }
+                    Thread.Sleep(100);
                 }
             });
         }
