@@ -37,7 +37,7 @@ namespace Lab6_TheBar
                     Thread.Sleep(1000);
                     LookForChair();
                     Thread.Sleep(4000);
-                    while (drinkingGlass == null) { }
+                    while (drinkingGlass == null) { Thread.Sleep(100); }
                     DrinkBeer();
                     LeaveBar();
                 }
