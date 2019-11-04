@@ -9,6 +9,7 @@ namespace Lab6_TheBar
         Bar bar;
         MainWindow mainWindow;
         Glass[] dirtyGlasses = new Glass[6];
+        public bool waiterWorking { get; set; }
         public Waiter(Bar bar, MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
@@ -24,8 +25,21 @@ namespace Lab6_TheBar
                     }
                     Thread.Sleep(100);
                 }
+                while (!bar.IsOpen)
+                {
+                    if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
+                    {
+                        waiterWorking = false;
+                    }
+                    else
+                    {
+                        CollectGlass();
+                        CleanGlass();
+                    }
+                }
             });
         }
+
 
         private void CollectGlass()
         {

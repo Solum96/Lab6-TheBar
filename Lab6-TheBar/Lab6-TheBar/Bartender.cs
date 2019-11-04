@@ -10,11 +10,13 @@ namespace Lab6_TheBar
         Glass currentGlass;
         Bar bar;
         MainWindow mainWindow;
+        public bool bartenderWorking { get; set; }
 
         public Bartender(Bar bar, MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
+            
             Task.Run(() => 
             {
                 while(bar.IsOpen)
@@ -24,6 +26,21 @@ namespace Lab6_TheBar
                     WaitForGlass();
                     Thread.Sleep(3000);
                     ServePatron();
+                }
+                while(!bar.IsOpen)
+                {
+                    if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
+                    {
+                        bartenderWorking = false;
+                    }
+                    else
+                    {
+                        WaitForPatron();
+                        Thread.Sleep(3000);
+                        WaitForGlass();
+                        Thread.Sleep(3000);
+                        ServePatron();
+                    }
                 }
             });
         }
