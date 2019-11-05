@@ -59,14 +59,18 @@ namespace Lab6_TheBar
                 }
                 while (!bar.IsOpen)
                 {
-                    if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
+                    if (bar.waitingGuests.IsEmpty && bar.servedPatrons.IsEmpty)
                     {
                         waiterWorking = false;
+                        mainWindow.WaiterLog("Waiter hoppar ut genom fönstret. Överlevde. Tyvärr.");
                     }
                     else
                     {
-                        CollectGlass();
-                        CleanGlass();
+                        if (!bar.dirtyGlasses.IsEmpty)
+                        {
+                            CollectGlass();
+                            CleanGlass();
+                        }
                     }
                 }
             });
