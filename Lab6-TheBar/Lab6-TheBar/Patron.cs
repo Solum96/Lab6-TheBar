@@ -32,7 +32,12 @@ namespace Lab6_TheBar
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
-            Task.Run(() => 
+            EnterBar(bar, mainWindow);
+        }
+
+        private void EnterBar(Bar bar, MainWindow mainWindow)
+        {
+            Task.Run(() =>
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
                 mainWindow.PatronLog($"{this.name} entered Ye Ol' Crusty Sock");
@@ -54,8 +59,8 @@ namespace Lab6_TheBar
             bar.chairs.Enqueue(seat);
             seat = null;
             mainWindow.PatronLog($"{this.name} leaves the Bar.");
-            bar.servedPatrons.TryRemove(this.name, out Patron patron);
-            //currentPatrionsLabel.Content =
+            bar.servedPatrons.TryRemove(this, out Patron patron);
+            //currentPatronsLabel.Content =
         }
 
         private void DrinkBeer()

@@ -20,7 +20,7 @@ namespace Lab6_TheBar
         public ConcurrentBag<Glass> dirtyGlasses = new ConcurrentBag<Glass>();
         public ConcurrentQueue<Chair> chairs = new ConcurrentQueue<Chair>();
         public ConcurrentQueue<Patron> waitingGuests = new ConcurrentQueue<Patron>();
-        public ConcurrentDictionary<string, Patron> servedPatrons = new ConcurrentDictionary<string, Patron>();
+        public ConcurrentDictionary<Patron, Patron> servedPatrons = new ConcurrentDictionary<Patron, Patron>();
         
         public bool waiterWorking { get; set; }
         public bool IsOpen { get; set; }
@@ -50,7 +50,7 @@ namespace Lab6_TheBar
             waiter.Work();
             Task.Run(() => 
             {
-                Thread.Sleep(120 * 1000);
+                Thread.Sleep(120000);
                 CloseBar();
             });
         }

@@ -33,7 +33,9 @@ namespace Lab6_TheBar
                 while (bar.IsOpen)
                 {
                     LetInPatron();
+                    if (bar.IsOpen == false) { break; }
                 }
+                mainWindow.PatronLog("Bouncern ragequitta");
             });
         }
     }

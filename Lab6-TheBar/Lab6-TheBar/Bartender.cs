@@ -29,6 +29,7 @@ namespace Lab6_TheBar
                     WaitForGlass();
                     Thread.Sleep(3000);
                     ServePatron();
+                    if (bar.IsOpen == false) { break; }
                 }
                 while (!bar.IsOpen)
                 {
@@ -52,8 +53,8 @@ namespace Lab6_TheBar
         {
             currentPatron.drinkingGlass = currentGlass;
             currentGlass = null;
-            bar.servedPatrons.TryAdd(currentPatron.name, currentPatron);
-            mainWindow.BartenderLog("The bartender poured a beer and served the patron.");
+            bar.servedPatrons.TryAdd(currentPatron, currentPatron);
+            mainWindow.BartenderLog(DateTime.Now + " The bartender poured a beer and served the patron.");
 
         }
 
@@ -64,14 +65,14 @@ namespace Lab6_TheBar
                 Thread.Sleep(1000);
             }
             bar.glasses.TryPop(out currentGlass);
-            mainWindow.BartenderLog("The bartender took a glass from the shelf.");
+            mainWindow.BartenderLog(DateTime.Now + " The bartender took a glass from the shelf.");
         }
 
         private void WaitForPatron()
         {
             while(bar.waitingGuests.IsEmpty) { Thread.Sleep(1000); }
             bar.waitingGuests.TryDequeue(out currentPatron);
-            mainWindow.BartenderLog("The bartender is now serving a patron.");
+            mainWindow.BartenderLog(DateTime.Now + " The bartender is now serving a patron.");
         }
     }
 }

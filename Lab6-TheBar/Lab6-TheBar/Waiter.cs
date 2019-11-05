@@ -54,6 +54,8 @@ namespace Lab6_TheBar
                         CleanGlass();
                     }
                     Thread.Sleep(100);
+                    if (bar.IsOpen == false) { break; }
+
                 }
                 while (!bar.IsOpen)
                 {
