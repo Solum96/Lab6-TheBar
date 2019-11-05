@@ -22,12 +22,10 @@ namespace Lab6_TheBar
     public partial class MainWindow : Window
     {
         Bar bar;
-        Logger log;
         public MainWindow()
         {
             InitializeComponent();
             bar = new Bar(this);
-            log = new Logger(this);
 
             runButton.Click += RunButtonClick;
         }
@@ -41,27 +39,22 @@ namespace Lab6_TheBar
         {
             Dispatcher.Invoke(() =>
             {
-                bartenderLog.Items.Insert(0, message);
+                bartenderLog.Items.Insert(0, DateTime.Now + message);
             });
         }
         public void WaiterLog(string message)
         {
             Dispatcher.Invoke(() =>
             {
-                waiterLog.Items.Insert(0, message);
+                waiterLog.Items.Insert(0, DateTime.Now + message);
             });
         }
         public void PatronLog(string message)
         {
             Dispatcher.Invoke(() =>
             {
-                patronLog.Items.Insert(0, message);
+                patronLog.Items.Insert(0, DateTime.Now + message);
             });
-        }
-
-        private void pausBartenderButtonClick(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

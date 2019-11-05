@@ -11,7 +11,7 @@
         <ListBox x:Name="waiterLog" HorizontalAlignment="Left" Height="212" Margin="236,100,0,0" VerticalAlignment="Top" Width="221"/>
         <ListBox x:Name="patronLog" HorizontalAlignment="Left" Height="212" Margin="462,100,0,0" VerticalAlignment="Top" Width="221"/>
         <Button x:Name="runButton" Content="Open/Close Bar" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="673" Height="53" Click="RunButtonClick"/>
-        <Button x:Name="pausBartenderButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="221" Height="34" Click="pausBartenderButtonClick"/>
+        <Button x:Name="pausBartenderButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
         <Button x:Name="pausWaiterButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="236,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
         <Button x:Name="pausPatronButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="462,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
         <Label x:Name="bartenderLabel" Content="Bartender" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="221"/>
