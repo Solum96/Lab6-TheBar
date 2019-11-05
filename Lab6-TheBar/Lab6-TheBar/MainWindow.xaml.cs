@@ -30,6 +30,24 @@ namespace Lab6_TheBar
             runButton.Click += RunButtonClick;
         }
 
+        public void UpdateTimeLabel(DateTime closeTime)
+        {
+            Dispatcher.Invoke(() => 
+            {
+                timerLabel.Content = closeTime - DateTime.Now;
+            });
+        }
+
+        internal void UpdateInfoLabels()
+        {
+            Dispatcher.Invoke(() => 
+            {
+                patronLabel.Content = $"Guests {bar.waitingGuests.Count + bar.servedPatrons.Count}";
+                numberOfGlassLabel.Content = $"Glasses: {bar.glasses.Count}";
+                numberOfChairsLabel.Content = $"Chairs: {bar.chairs.Count}";
+            });
+        }
+
         private void RunButtonClick(object sender, RoutedEventArgs e)
         {
             runButton.Content = "Close Bar";

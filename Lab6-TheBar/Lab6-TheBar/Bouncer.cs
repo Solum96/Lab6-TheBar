@@ -22,7 +22,10 @@ namespace Lab6_TheBar
             if(!bar.chairs.IsEmpty)
             {
                 Thread.Sleep(rng.Next(3000, 10001));
-                bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
+                if (bar.IsOpen)
+                {
+                    bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
+                }
             }
         }
 
@@ -33,7 +36,7 @@ namespace Lab6_TheBar
                 while (bar.IsOpen)
                 {
                     LetInPatron();
-                    if (bar.IsOpen == false) { break; }
+                    if (!bar.IsOpen) { break; }
                 }
                 mainWindow.PatronLog("Bouncern ragequitta");
             });
