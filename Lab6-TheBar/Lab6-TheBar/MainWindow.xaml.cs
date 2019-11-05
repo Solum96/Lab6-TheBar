@@ -32,9 +32,20 @@ namespace Lab6_TheBar
 
         private void RunButtonClick(object sender, RoutedEventArgs e)
         {
-            runButton.IsEnabled = false;
+            runButton.Content = "Close Bar";
             bar.OpenBar();
+            runButton.Click -= RunButtonClick;
+            runButton.Click += CloseBarClick;
         }
+
+        private void CloseBarClick(object sender, RoutedEventArgs e)
+        {
+            runButton.Content = "Open Bar";
+            bar.CloseBar();
+            runButton.Click -= CloseBarClick;
+            runButton.Click += RunButtonClick;
+        }
+
         public void BartenderLog(string message)
         {
             Dispatcher.Invoke(() =>

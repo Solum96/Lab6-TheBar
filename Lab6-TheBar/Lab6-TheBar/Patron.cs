@@ -13,7 +13,7 @@ namespace Lab6_TheBar
         public Glass drinkingGlass;
         public Chair seat;
         public string name { get; set; }
-        string[] nameArray = 
+        string[] nameArray =
         {
             "Bengt",
             "Bertil",
@@ -21,10 +21,11 @@ namespace Lab6_TheBar
             "Benjamin",
             "Benny",
             "Bodil",
-            "Brosef",
             "Banders",
             "Bemil",
-            "Bils"
+            "Bils",
+            "Batlan",
+            "Brosef"
         };
         Random nameRandomizer = new Random();
 
@@ -41,7 +42,7 @@ namespace Lab6_TheBar
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
                 mainWindow.PatronLog($"{this.name} entered Ye Ol' Crusty Sock");
-                while (bar.IsOpen)
+                //while (bar.IsOpen)
                 {
                     Thread.Sleep(1000);
                     LookForChair();
