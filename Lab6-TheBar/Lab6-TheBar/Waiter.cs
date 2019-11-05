@@ -9,11 +9,13 @@ namespace Lab6_TheBar
         Bar bar;
         MainWindow mainWindow;
         Glass[] dirtyGlasses = new Glass[6];
+        public bool waiterWorking { get; set; }
         public Waiter(Bar bar, MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
         }
+
 
         private void CollectGlass()
         {

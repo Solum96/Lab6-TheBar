@@ -39,24 +39,30 @@ namespace Lab6_TheBar
         }
         public void BartenderLog(string message)
         {
-            Dispatcher.Invoke(() => 
+            Dispatcher.Invoke(() =>
             {
                 bartenderLog.Items.Insert(0, message);
             });
         }
         public void WaiterLog(string message)
         {
-            Dispatcher.Invoke(() => 
+            Dispatcher.Invoke(() =>
             {
                 waiterLog.Items.Insert(0, message);
             });
         }
         public void PatronLog(string message)
         {
-            Dispatcher.Invoke(()=> 
+            Dispatcher.Invoke(() =>
             {
                 patronLog.Items.Insert(0, message);
             });
         }
+
+        private void pausBartenderButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+

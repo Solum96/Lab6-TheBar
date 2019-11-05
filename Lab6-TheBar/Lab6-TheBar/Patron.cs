@@ -55,6 +55,7 @@ namespace Lab6_TheBar
             seat = null;
             mainWindow.PatronLog($"{this.name} leaves the Bar.");
             bar.servedPatrons.TryRemove(this.name, out Patron patron);
+            //currentPatrionsLabel.Content =
         }
 
         private void DrinkBeer()

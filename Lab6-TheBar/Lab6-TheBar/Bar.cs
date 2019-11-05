@@ -21,6 +21,8 @@ namespace Lab6_TheBar
         public ConcurrentQueue<Chair> chairs = new ConcurrentQueue<Chair>();
         public ConcurrentQueue<Patron> waitingGuests = new ConcurrentQueue<Patron>();
         public ConcurrentDictionary<string, Patron> servedPatrons = new ConcurrentDictionary<string, Patron>();
+        
+        public bool waiterWorking { get; set; }
         public bool IsOpen { get; set; }
 
         public Bar(MainWindow mainWindow)
