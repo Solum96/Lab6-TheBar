@@ -24,6 +24,7 @@ namespace Lab6_TheBar
         
         public bool waiterWorking { get; set; }
         public bool IsOpen { get; set; }
+        public BarTimer openingTimer { get; set; }
 
         public Bar(MainWindow mainWindow)
         {
@@ -41,18 +42,15 @@ namespace Lab6_TheBar
         public void OpenBar()
         {
             this.IsOpen = true;
+            this.openingTimer = new BarTimer(this, mainWindow);
             this.bouncer = new Bouncer(this, mainWindow);
             this.bartender = new Bartender(this, mainWindow);
-            this.waiter = new Waiter(this, mainWindow);
+            this.waiter = new Waiter(this, mainWindow, bartender);
 
             bartender.Work();
             bouncer.Work();
             waiter.Work();
-            Task.Run(() => 
-            {
-                Thread.Sleep(120000);
-                CloseBar();
-            });
+            openingTimer.RunTimer(30);
         }
         public void CloseBar()
         {

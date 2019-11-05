@@ -10,10 +10,12 @@ namespace Lab6_TheBar
         MainWindow mainWindow;
         Glass[] dirtyGlasses = new Glass[6];
         public bool waiterWorking { get; set; }
-        public Waiter(Bar bar, MainWindow mainWindow)
+        Bartender bartender;
+        public Waiter(Bar bar, MainWindow mainWindow, Bartender bartender)
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
+            this.bartender = bartender;
         }
 
 
@@ -34,9 +36,9 @@ namespace Lab6_TheBar
             {
                 if(dirtyGlasses[i] != null)
                 {
+                    Thread.Sleep(15000);
                     bar.glasses.Push(dirtyGlasses[i]);
                     dirtyGlasses[i] = null;
-                    Thread.Sleep(15000);
                 }
             }
             mainWindow.WaiterLog("All done!");
@@ -59,18 +61,16 @@ namespace Lab6_TheBar
                 }
                 while (!bar.IsOpen)
                 {
-                    if (bar.waitingGuests.IsEmpty && bar.servedPatrons.IsEmpty)
+                    if (!bartender.bartenderWorking)
                     {
                         waiterWorking = false;
                         mainWindow.WaiterLog("Waiter hoppar ut genom fönstret. Överlevde. Tyvärr.");
+                        break;
                     }
-                    else
-                    {
-                        if (!bar.dirtyGlasses.IsEmpty)
-                        {
-                            CollectGlass();
-                            CleanGlass();
-                        }
+                    else if (!bar.dirtyGlasses.IsEmpty)
+                    {    
+                        CollectGlass();
+                        CleanGlass();   
                     }
                 }
             });
