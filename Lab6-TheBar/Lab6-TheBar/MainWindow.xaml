@@ -11,13 +11,9 @@
         <ListBox x:Name="waiterLog" HorizontalAlignment="Left" Height="212" Margin="236,100,0,0" VerticalAlignment="Top" Width="221"/>
         <ListBox x:Name="patronLog" HorizontalAlignment="Left" Height="212" Margin="462,100,0,0" VerticalAlignment="Top" Width="221"/>
         <Button x:Name="runButton" Content="Open/Close Bar" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="673" Height="53" Click="RunButtonClick"/>
-        <Button x:Name="pausBartenderButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
-        <Button x:Name="pausWaiterButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="236,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
-        <Button x:Name="pausPatronButton" Content="Paus/Resume" HorizontalAlignment="Left" Margin="462,317,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
         <Label x:Name="bartenderLabel" Content="Bartender" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="221"/>
         <Label x:Name="patronLabel" Content="Patrons" HorizontalAlignment="Left" Margin="462,66,0,0" VerticalAlignment="Top" Width="221"/>
         <Label x:Name="waiterLabel" Content="Waiter" HorizontalAlignment="Left" Margin="236,66,0,0" VerticalAlignment="Top" Width="221"/>
-        <Button x:Name="panicButton" Content="Panic Button" HorizontalAlignment="Left" Margin="732,317,0,0" VerticalAlignment="Top" Width="151" Height="92" Background="Red" Foreground="White"/>
         <Label x:Name="numberOfGlassLabel" Content="Number of Glass" HorizontalAlignment="Left" Margin="713,159,0,0" VerticalAlignment="Top"/>
         <Label x:Name="numberOfPatronLabel" Content="Number of Patrons" HorizontalAlignment="Left" Margin="713,100,0,0" VerticalAlignment="Top"/>
         <Label x:Name="numberOfTableLabel" Content="Number of Tables" HorizontalAlignment="Left" Margin="713,220,0,0" VerticalAlignment="Top"/>
