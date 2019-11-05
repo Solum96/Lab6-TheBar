@@ -16,10 +16,13 @@ namespace Lab6_TheBar
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
-            
-            Task.Run(() => 
+        }
+
+        public void Work()
+        {
+            Task.Run(() =>
             {
-                while(bar.IsOpen)
+                while (bar.IsOpen)
                 {
                     WaitForPatron();
                     Thread.Sleep(3000);
@@ -27,7 +30,7 @@ namespace Lab6_TheBar
                     Thread.Sleep(3000);
                     ServePatron();
                 }
-                while(!bar.IsOpen)
+                while (!bar.IsOpen)
                 {
                     if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
                     {

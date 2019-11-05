@@ -44,6 +44,10 @@ namespace Lab6_TheBar
             this.bouncer = new Bouncer(this, mainWindow);
             this.bartender = new Bartender(this, mainWindow);
             this.waiter = new Waiter(this, mainWindow);
+
+            bartender.Work();
+            bouncer.Work();
+            waiter.Work();
             Task.Run(() => 
             {
                 Thread.Sleep(120 * 1000);

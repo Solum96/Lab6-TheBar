@@ -14,30 +14,6 @@ namespace Lab6_TheBar
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
-            Task.Run(() => 
-            {
-                while (bar.IsOpen)
-                {
-                    if (!bar.dirtyGlasses.IsEmpty)
-                    {
-                        CollectGlass();
-                        CleanGlass();
-                    }
-                    Thread.Sleep(100);
-                }
-                while (!bar.IsOpen)
-                {
-                    if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
-                    {
-                        waiterWorking = false;
-                    }
-                    else
-                    {
-                        CollectGlass();
-                        CleanGlass();
-                    }
-                }
-            });
         }
 
 
@@ -64,6 +40,34 @@ namespace Lab6_TheBar
                 }
             }
             mainWindow.WaiterLog("All done!");
+        }
+
+        internal void Work()
+        {
+            Task.Run(() =>
+            {
+                while (bar.IsOpen)
+                {
+                    if (!bar.dirtyGlasses.IsEmpty)
+                    {
+                        CollectGlass();
+                        CleanGlass();
+                    }
+                    Thread.Sleep(100);
+                }
+                while (!bar.IsOpen)
+                {
+                    if (bar.waitingGuests.IsEmpty && bar.chairs.IsEmpty)
+                    {
+                        waiterWorking = false;
+                    }
+                    else
+                    {
+                        CollectGlass();
+                        CleanGlass();
+                    }
+                }
+            });
         }
     }
 }

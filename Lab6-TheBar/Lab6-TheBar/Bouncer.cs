@@ -15,13 +15,6 @@ namespace Lab6_TheBar
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
-            Task.Run(() => 
-            {
-                while (bar.IsOpen)
-                {
-                    LetInPatron();
-                }
-            });
         }
 
         public void LetInPatron()
@@ -31,6 +24,17 @@ namespace Lab6_TheBar
                 Thread.Sleep(rng.Next(3000, 10001));
                 bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
             }
+        }
+
+        internal void Work()
+        {
+            Task.Run(() =>
+            {
+                while (bar.IsOpen)
+                {
+                    LetInPatron();
+                }
+            });
         }
     }
 }

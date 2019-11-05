@@ -41,21 +41,21 @@ namespace Lab6_TheBar
         {
             Dispatcher.Invoke(() =>
             {
-                Logger.bartenderList.Add(message);
+                bartenderLog.Items.Insert(0, message);
             });
         }
         public void WaiterLog(string message)
         {
             Dispatcher.Invoke(() =>
             {
-                Logger.waiterList.Add(message);
+                waiterLog.Items.Insert(0, message);
             });
         }
         public void PatronLog(string message)
         {
             Dispatcher.Invoke(() =>
             {
-                Logger.patronList.Add(message);
+                patronLog.Items.Insert(0, message);
             });
         }
 
