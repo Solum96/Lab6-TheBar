@@ -42,7 +42,7 @@ namespace Lab6_TheBar
         {
             Dispatcher.Invoke(() => 
             {
-                patronLabel.Content = $"Guests {bar.waitingGuests.Count + bar.servedPatrons.Count}";
+                numberOfPatronLabel.Content = $"Guests {bar.waitingGuests.Count + bar.servedPatrons.Count}";
                 numberOfGlassLabel.Content = $"Glasses: {bar.glasses.Count}";
                 numberOfChairsLabel.Content = $"Chairs: {bar.chairs.Count}";
             });

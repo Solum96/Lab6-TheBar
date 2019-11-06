@@ -42,14 +42,14 @@ namespace Lab6_TheBar
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
                 mainWindow.PatronLog($"{this.name} entered Ye Ol' Crusty Sock");
-                //while (bar.IsOpen)
-                {
-                    Thread.Sleep(1000);
-                    LookForChair();
-                    while (drinkingGlass == null) { Thread.Sleep(100); }
-                    DrinkBeer();
-                    LeaveBar();
-                }
+                
+             
+                Thread.Sleep(1000);
+                LookForChair();
+                while (drinkingGlass == null) { Thread.Sleep(100); }
+                DrinkBeer();
+                LeaveBar();
+             
             });
         }
 

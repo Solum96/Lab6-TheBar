@@ -10,7 +10,7 @@ namespace Lab6_TheBar
         Glass currentGlass;
         Bar bar;
         MainWindow mainWindow;
-        public bool bartenderWorking { get; set; }
+        public bool bartenderWorking = true;
 
         public Bartender(Bar bar, MainWindow mainWindow)
         {
