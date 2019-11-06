@@ -50,7 +50,7 @@ namespace Lab6_TheBar
             bartender.Work();
             bouncer.Work();
             waiter.Work();
-            openingTimer.RunTimer(30);
+            openingTimer.RunTimer(120);
         }
         public void CloseBar()
         {
