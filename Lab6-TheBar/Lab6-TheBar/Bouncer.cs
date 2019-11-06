@@ -48,7 +48,7 @@ namespace Lab6_TheBar
                     LetInPatron();
                     if (!bar.IsOpen) { break; }
                 }
-                mainWindow.PatronLog("Bouncern ragequitta");
+                mainWindow.PatronLog(" Bouncern ragequitta");
             });
         }
     }

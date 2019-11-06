@@ -22,7 +22,7 @@ namespace Lab6_TheBar
         private void CollectGlass()
         {
             if (!bartender.bartenderWorking) return;
-            mainWindow.WaiterLog("The Waiter starts collecting glasses.");
+            mainWindow.WaiterLog(" The Waiter starts collecting glasses.");
             Thread.Sleep(10000);
             for (int i = 0; i < dirtyGlasses.Length; i++)
             {
@@ -33,7 +33,7 @@ namespace Lab6_TheBar
         private void CleanGlass()
         {
             if (!bartender.bartenderWorking) return;
-            mainWindow.WaiterLog("Waiterboii starts washing up.");
+            mainWindow.WaiterLog(" Waiterboii starts washing up.");
             Thread.Sleep(15000);
             for(int i = 0; i < dirtyGlasses.Length; i++)
             {
@@ -43,7 +43,7 @@ namespace Lab6_TheBar
                     dirtyGlasses[i] = null;
                 }
             }
-            mainWindow.WaiterLog("All done!");
+            mainWindow.WaiterLog(" All done!");
         }
 
         internal void Work()
@@ -66,7 +66,7 @@ namespace Lab6_TheBar
                     if (!bartender.bartenderWorking)
                     {
                         waiterWorking = false;
-                        mainWindow.WaiterLog("Waiter hoppar ut genom fönstret. Överlevde. Tyvärr.");
+                        mainWindow.WaiterLog(" Waiter hoppar ut genom fönstret. Överlevde. Tyvärr.");
                         break;
                     }
                     else if (!bar.dirtyGlasses.IsEmpty)
