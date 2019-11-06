@@ -11,11 +11,14 @@ namespace Lab6_TheBar
         Glass[] dirtyGlasses = new Glass[6];
         public bool waiterWorking { get; set; }
         Bartender bartender;
+        MainWindow.Presets SelectedOption;
+
         public Waiter(Bar bar, MainWindow mainWindow, Bartender bartender)
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
             this.bartender = bartender;
+            this.SelectedOption = mainWindow.SelectedOption;
         }
 
 
@@ -23,7 +26,10 @@ namespace Lab6_TheBar
         {
             if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog(" The Waiter starts collecting glasses.");
-            Thread.Sleep(10000);
+
+            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(5000);
+            else Thread.Sleep(10000);
+
             for (int i = 0; i < dirtyGlasses.Length; i++)
             {
                 bar.dirtyGlasses.TryTake(out dirtyGlasses[i]);
@@ -34,7 +40,10 @@ namespace Lab6_TheBar
         {
             if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog(" Waiterboii starts washing up.");
-            Thread.Sleep(15000);
+
+            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(7500);
+            else Thread.Sleep(15000);
+
             for(int i = 0; i < dirtyGlasses.Length; i++)
             {
                 if (dirtyGlasses[i] != null)
@@ -46,7 +55,7 @@ namespace Lab6_TheBar
             mainWindow.WaiterLog(" All done!");
         }
 
-        internal void Work()
+        public void Work()
         {
             Task.Run(() =>
             {

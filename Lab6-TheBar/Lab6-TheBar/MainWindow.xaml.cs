@@ -22,9 +22,13 @@ namespace Lab6_TheBar
     public partial class MainWindow : Window
     {
         Bar bar;
+        public enum Presets { Default, LotsOfGlass, LotsOfTables, GuestsStayLong, SuperWaiter, AllNightBar, CouplesNight, BusLoad };
+        public Presets SelectedOption = Presets.Default;
         public MainWindow()
         {
             InitializeComponent();
+            optionsMenu.ItemsSource = Enum.GetValues(typeof(Presets)).Cast<Presets>();
+
             bar = new Bar(this);
 
             runButton.Click += RunButtonClick;
@@ -51,6 +55,7 @@ namespace Lab6_TheBar
         private void RunButtonClick(object sender, RoutedEventArgs e)
         {
             runButton.Content = "Close Bar";
+            optionsMenu.IsEnabled = false;
             bar.OpenBar();
             runButton.Click -= RunButtonClick;
             runButton.Click += CloseBarClick;
@@ -85,6 +90,48 @@ namespace Lab6_TheBar
                 patronLog.Items.Insert(0, DateTime.Now + message);
             });
         }
+
+        private void OptionsMenuSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (optionsMenu.SelectedItem)
+            {
+                case Presets.Default:
+                    SelectedOption = Presets.Default;
+                    break;
+
+                case Presets.LotsOfGlass:
+                    SelectedOption = Presets.LotsOfGlass;
+                    break;
+
+                case Presets.LotsOfTables:
+                    SelectedOption = Presets.LotsOfTables;
+                    break;
+
+                case Presets.GuestsStayLong:
+                    SelectedOption = Presets.GuestsStayLong;
+                    break;
+
+                case Presets.SuperWaiter:
+                    SelectedOption = Presets.SuperWaiter;
+                    break;
+
+                case Presets.AllNightBar:
+                    SelectedOption = Presets.AllNightBar;
+                    break;
+
+                case Presets.CouplesNight:
+                    SelectedOption = Presets.CouplesNight;
+                    break;
+
+                case Presets.BusLoad:
+                    SelectedOption = Presets.BusLoad;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
     }
 }
 

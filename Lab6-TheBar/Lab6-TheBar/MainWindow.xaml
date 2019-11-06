@@ -19,5 +19,7 @@
         <Label x:Name="numberOfChairsLabel" Content="Number of Tables" HorizontalAlignment="Left" Margin="828,480,0,0" VerticalAlignment="Top"/>
         <Label x:Name="currentPatrionsLabel" Content="" HorizontalAlignment="Left" Margin="1309,333,0,0" VerticalAlignment="Top"/>
         <Label x:Name="timerLabel" Content="-----------" HorizontalAlignment="Left" Margin="840,537,0,0" VerticalAlignment="Top" Width="65"/>
+        <ComboBox x:Name="optionsMenu" HorizontalAlignment="Left" Margin="859,136,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="OptionsMenuSelectionChanged" SelectedIndex="0"/>
+        <CheckBox x:Name="doubleTime" Content="2x Speed" HorizontalAlignment="Left" Margin="840,579,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

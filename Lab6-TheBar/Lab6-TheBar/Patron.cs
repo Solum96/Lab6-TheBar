@@ -10,6 +10,7 @@ namespace Lab6_TheBar
     {
         Bar bar;
         MainWindow mainWindow;
+        MainWindow.Presets SelectedOption;
         public Glass drinkingGlass;
         public Chair seat;
         public string name { get; set; }
@@ -33,6 +34,7 @@ namespace Lab6_TheBar
         {
             this.mainWindow = mainWindow;
             this.bar = bar;
+            this.SelectedOption = mainWindow.SelectedOption;
             EnterBar(bar, mainWindow);
         }
 
@@ -67,7 +69,14 @@ namespace Lab6_TheBar
         {
             mainWindow.PatronLog($" {this.name} buys a drink and starts chugging.");
             Random rng = new Random();
-            Thread.Sleep(rng.Next(10000, 30000));
+            if (SelectedOption == MainWindow.Presets.GuestsStayLong)
+            {
+                Thread.Sleep(rng.Next(20000, 60000));
+            }
+            else
+            {
+                Thread.Sleep(rng.Next(10000, 30000));
+            }
         }
 
         private void LookForChair()
