@@ -21,22 +21,24 @@ namespace Lab6_TheBar
 
         private void CollectGlass()
         {
+            if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog("The Waiter starts collecting glasses.");
+            Thread.Sleep(10000);
             for (int i = 0; i < dirtyGlasses.Length; i++)
             {
                 bar.dirtyGlasses.TryTake(out dirtyGlasses[i]);
             }
-            Thread.Sleep(10000);
         }
 
         private void CleanGlass()
         {
+            if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog("Waiterboii starts washing up.");
+            Thread.Sleep(15000);
             for(int i = 0; i < dirtyGlasses.Length; i++)
             {
-                if(dirtyGlasses[i] != null)
+                if (dirtyGlasses[i] != null)
                 {
-                    Thread.Sleep(15000);
                     bar.glasses.Push(dirtyGlasses[i]);
                     dirtyGlasses[i] = null;
                 }

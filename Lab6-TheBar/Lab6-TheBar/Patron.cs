@@ -57,11 +57,10 @@ namespace Lab6_TheBar
         {
             bar.dirtyGlasses.Add(drinkingGlass);
             drinkingGlass = null;
-            bar.chairs.Enqueue(seat);
+            if(seat != null) bar.chairs.Enqueue(seat);
             seat = null;
             mainWindow.PatronLog($"{this.name} leaves the Bar.");
             bar.servedPatrons.TryRemove(this, out Patron patron);
-            //currentPatronsLabel.Content =
         }
 
         private void DrinkBeer()
@@ -73,8 +72,8 @@ namespace Lab6_TheBar
 
         private void LookForChair()
         {
-            while (bar.chairs.IsEmpty) { Thread.Sleep(100); }
             Thread.Sleep(4000);
+            while (bar.chairs.IsEmpty) { Thread.Sleep(100); }
             bar.chairs.TryDequeue(out seat);
             mainWindow.PatronLog($"{this.name} found a chair!");
         }
