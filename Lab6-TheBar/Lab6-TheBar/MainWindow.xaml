@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab6_TheBar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="925">
-    <Grid Margin="0,0,0,0" Height="425" VerticalAlignment="Bottom">
-        <ListBox x:Name="bartenderLog" HorizontalAlignment="Left" Height="212" Margin="10,100,0,0" VerticalAlignment="Top" Width="221"/>
-        <ListBox x:Name="waiterLog" HorizontalAlignment="Left" Height="212" Margin="236,100,0,0" VerticalAlignment="Top" Width="221"/>
-        <ListBox x:Name="patronLog" HorizontalAlignment="Left" Height="212" Margin="462,100,0,0" VerticalAlignment="Top" Width="221"/>
-        <Button x:Name="runButton" Content="Open/Close Bar" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="673" Height="53" />
-        <Label x:Name="bartenderLabel" Content="Bartender" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="221"/>
-        <Label x:Name="patronLabel" Content="Patrons" HorizontalAlignment="Left" Margin="462,66,0,0" VerticalAlignment="Top" Width="221"/>
-        <Label x:Name="waiterLabel" Content="Waiter" HorizontalAlignment="Left" Margin="236,66,0,0" VerticalAlignment="Top" Width="221"/>
-        <Label x:Name="numberOfGlassLabel" Content="Number of Glass" HorizontalAlignment="Left" Margin="713,159,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="numberOfPatronLabel" Content="Number of Patrons" HorizontalAlignment="Left" Margin="713,100,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="numberOfChairsLabel" Content="Number of Tables" HorizontalAlignment="Left" Margin="713,220,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="currentPatrionsLabel" Content="" HorizontalAlignment="Left" Margin="829,100,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="timerLabel" Content="-----------" HorizontalAlignment="Left" Margin="725,277,0,0" VerticalAlignment="Top" Width="65"/>
+        Title="MainWindow" Height="909" Width="1127">
+    <Grid Height="878" VerticalAlignment="Bottom">
+        <ListBox x:Name="bartenderLog" HorizontalAlignment="Left" Height="212" Margin="157,121,0,0" VerticalAlignment="Top" Width="613"/>
+        <ListBox x:Name="waiterLog" HorizontalAlignment="Left" Height="212" Margin="157,338,0,0" VerticalAlignment="Top" Width="613"/>
+        <ListBox x:Name="patronLog" HorizontalAlignment="Left" Height="212" Margin="157,555,0,0" VerticalAlignment="Top" Width="613"/>
+        <Button x:Name="runButton" Content="Open/Close Bar" HorizontalAlignment="Left" Margin="232,800,0,0" VerticalAlignment="Top" Width="673" Height="53" />
+        <Label x:Name="bartenderLabel" Content="Bartender" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label x:Name="patronLabel" Content="Patrons" HorizontalAlignment="Left" Margin="10,651,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label x:Name="waiterLabel" Content="Waiter" HorizontalAlignment="Left" Margin="10,435,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label x:Name="numberOfGlassLabel" Content="Number of Glass" HorizontalAlignment="Left" Margin="828,419,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="numberOfPatronLabel" Content="Number of Patrons" HorizontalAlignment="Left" Margin="828,360,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="numberOfChairsLabel" Content="Number of Tables" HorizontalAlignment="Left" Margin="828,480,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="currentPatrionsLabel" Content="" HorizontalAlignment="Left" Margin="1309,333,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="timerLabel" Content="-----------" HorizontalAlignment="Left" Margin="840,537,0,0" VerticalAlignment="Top" Width="65"/>
     </Grid>
 </Window>

@@ -41,7 +41,7 @@ namespace Lab6_TheBar
             Task.Run(() =>
             {
                 name = nameArray[nameRandomizer.Next(0, nameArray.Length)];
-                mainWindow.PatronLog($"{this.name} entered Ye Ol' Crusty Sock");
+                mainWindow.PatronLog($" {this.name} entered Ye Ol' Crusty Sock");
                 
              
                 Thread.Sleep(1000);
@@ -59,13 +59,13 @@ namespace Lab6_TheBar
             drinkingGlass = null;
             if(seat != null) bar.chairs.Enqueue(seat);
             seat = null;
-            mainWindow.PatronLog($"{this.name} leaves the Bar.");
+            mainWindow.PatronLog($" {this.name} leaves the Bar.");
             bar.servedPatrons.TryRemove(this, out Patron patron);
         }
 
         private void DrinkBeer()
         {
-            mainWindow.PatronLog($"{this.name} buys a drink and starts chugging.");
+            mainWindow.PatronLog($" {this.name} buys a drink and starts chugging.");
             Random rng = new Random();
             Thread.Sleep(rng.Next(10000, 30000));
         }
@@ -75,7 +75,7 @@ namespace Lab6_TheBar
             Thread.Sleep(4000);
             while (bar.chairs.IsEmpty) { Thread.Sleep(100); }
             bar.chairs.TryDequeue(out seat);
-            mainWindow.PatronLog($"{this.name} found a chair!");
+            mainWindow.PatronLog($" {this.name} found a chair!");
         }
     }
 }

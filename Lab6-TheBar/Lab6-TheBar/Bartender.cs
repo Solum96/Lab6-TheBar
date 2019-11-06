@@ -36,7 +36,7 @@ namespace Lab6_TheBar
                     if (bar.waitingGuests.IsEmpty && bar.servedPatrons.IsEmpty)
                     {
                         bartenderWorking = false;
-                        mainWindow.BartenderLog("Bartendern gick hem och grät sig till sömns.");
+                        mainWindow.BartenderLog(" Bartendern gick hem och grät sig till sömns.");
                         break;
                     }
                     else if (!bar.waitingGuests.IsEmpty)
