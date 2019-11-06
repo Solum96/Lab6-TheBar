@@ -21,9 +21,9 @@ namespace Lab6_TheBar
         {
             if(!bar.chairs.IsEmpty)
             {
-                Thread.Sleep(rng.Next(3000, 10001));
                 if (bar.IsOpen)
                 {
+                    Thread.Sleep(rng.Next(3000, 10000));
                     bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
                 }
             }
@@ -33,6 +33,16 @@ namespace Lab6_TheBar
         {
             Task.Run(() =>
             {
+                // FOR TESTING:
+                // Task.Run(() => 
+                // {
+                //     Thread.Sleep(20000);
+                //     for (int i = 0; i < 15; i++)
+                //     {
+                //         bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
+                //     }
+                //     mainWindow.PatronLog("Oh shit, en busslast med idioter!");
+                // });
                 while (bar.IsOpen)
                 {
                     LetInPatron();

@@ -15,7 +15,6 @@ namespace Lab6_TheBar
         Waiter waiter;
         int numberOfGlass = 8;
         int numberOfChairs = 9;
-        public const int guestCapacity = 50;
         public ConcurrentStack<Glass> glasses = new ConcurrentStack<Glass>();
         public ConcurrentBag<Glass> dirtyGlasses = new ConcurrentBag<Glass>();
         public ConcurrentQueue<Chair> chairs = new ConcurrentQueue<Chair>();
