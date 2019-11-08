@@ -70,6 +70,7 @@ namespace Lab6_TheBar
         public void CloseBar()
         {
             this.IsOpen = false;
+
         }
     }
 }

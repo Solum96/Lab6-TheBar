@@ -25,8 +25,8 @@ namespace Lab6_TheBar
             {
                 if (bar.IsOpen)
                 {
-                    if (SelectedOption == MainWindow.Presets.BusLoad) Thread.Sleep(rng.Next(6000, 20000));
-                    else Thread.Sleep(rng.Next(3000, 10000));
+                    if (SelectedOption == MainWindow.Presets.BusLoad) Thread.Sleep(rng.Next(6000 / mainWindow.Speed, 20000 / mainWindow.Speed));
+                    else Thread.Sleep(rng.Next(3000 / mainWindow.Speed, 10000 / mainWindow.Speed));
 
                     bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
                     if(SelectedOption == MainWindow.Presets.CouplesNight)
@@ -45,7 +45,7 @@ namespace Lab6_TheBar
                 {
                     Task.Run(() => 
                     {
-                        Thread.Sleep(20000);
+                        Thread.Sleep(20000 / mainWindow.Speed);
                         for (int i = 0; i < 15; i++)
                         {
                             bar.waitingGuests.Enqueue(new Patron(bar, mainWindow));
