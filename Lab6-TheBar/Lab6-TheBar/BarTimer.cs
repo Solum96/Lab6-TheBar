@@ -7,8 +7,6 @@ namespace Lab6_TheBar
 {
     internal class BarTimer
     {
-        DateTime startTime;
-        DateTime closeTime;
         Bar bar;
         MainWindow mainWindow;
 
@@ -18,16 +16,16 @@ namespace Lab6_TheBar
             this.mainWindow = mainWindow;
         }
 
-        public void RunTimer(double openingSeconds)
+        public void RunTimer(int openingSeconds)
         {
-            this.startTime = DateTime.Now;
-            this.closeTime = startTime.AddSeconds(openingSeconds);
+            int timer = openingSeconds;
             Task.Run(() =>
             {
-                while (DateTime.Now < closeTime)
+                while (timer > 0)
                 {
-                    Thread.Sleep(100);
-                    mainWindow.UpdateTimeLabel(closeTime);
+                    Thread.Sleep(1000 / mainWindow.Speed);
+                    timer--;
+                    mainWindow.UpdateTimeLabel(timer);
                 }
                 bar.CloseBar();
             });

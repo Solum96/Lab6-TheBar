@@ -46,7 +46,7 @@ namespace Lab6_TheBar
                 mainWindow.PatronLog($" {this.name} entered Ye Ol' Crusty Sock");
                 
              
-                Thread.Sleep(1000);
+                Thread.Sleep(1000 / mainWindow.Speed);
                 LookForChair();
                 while (drinkingGlass == null) { Thread.Sleep(100); }
                 DrinkBeer();
@@ -71,17 +71,17 @@ namespace Lab6_TheBar
             Random rng = new Random();
             if (SelectedOption == MainWindow.Presets.GuestsStayLong)
             {
-                Thread.Sleep(rng.Next(20000, 60000));
+                Thread.Sleep(rng.Next(20000 / mainWindow.Speed, 60000 / mainWindow.Speed));
             }
             else
             {
-                Thread.Sleep(rng.Next(10000, 30000));
+                Thread.Sleep(rng.Next(10000 / mainWindow.Speed, 30000 / mainWindow.Speed));
             }
         }
 
         private void LookForChair()
         {
-            Thread.Sleep(4000);
+            Thread.Sleep(4000 / mainWindow.Speed);
             while (bar.chairs.IsEmpty) { Thread.Sleep(100); }
             bar.chairs.TryDequeue(out seat);
             mainWindow.PatronLog($" {this.name} found a chair!");

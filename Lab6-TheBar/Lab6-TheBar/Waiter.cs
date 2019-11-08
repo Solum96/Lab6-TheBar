@@ -27,8 +27,8 @@ namespace Lab6_TheBar
             if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog(" The Waiter starts collecting glasses.");
 
-            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(5000);
-            else Thread.Sleep(10000);
+            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(5000 / mainWindow.Speed);
+            else Thread.Sleep(10000 / mainWindow.Speed);
 
             for (int i = 0; i < dirtyGlasses.Length; i++)
             {
@@ -41,8 +41,8 @@ namespace Lab6_TheBar
             if (!bartender.bartenderWorking) return;
             mainWindow.WaiterLog(" Waiterboii starts washing up.");
 
-            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(7500);
-            else Thread.Sleep(15000);
+            if (SelectedOption == MainWindow.Presets.SuperWaiter) Thread.Sleep(7500 / mainWindow.Speed);
+            else Thread.Sleep(15000 / mainWindow.Speed);
 
             for(int i = 0; i < dirtyGlasses.Length; i++)
             {

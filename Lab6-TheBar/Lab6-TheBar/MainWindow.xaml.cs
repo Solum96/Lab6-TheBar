@@ -24,6 +24,10 @@ namespace Lab6_TheBar
         Bar bar;
         public enum Presets { Default, LotsOfGlass, LotsOfTables, GuestsStayLong, SuperWaiter, AllNightBar, CouplesNight, BusLoad };
         public Presets SelectedOption = Presets.Default;
+
+        int speed = 1;
+        public int Speed { get { return speed; } private set { speed = value; } }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,13 +36,31 @@ namespace Lab6_TheBar
             bar = new Bar(this);
 
             runButton.Click += RunButtonClick;
+            resetButton.Click += ResetButtonClick;
+            speedSlider.ValueChanged += SpeedSliderValueChanged;
         }
 
-        public void UpdateTimeLabel(DateTime closeTime)
+        private void ResetButtonClick(object sender, RoutedEventArgs e)
         {
             Dispatcher.Invoke(() => 
             {
-                timerLabel.Content = closeTime - DateTime.Now;
+                bartenderLog.Items.Clear();
+                waiterLog.Items.Clear();
+                patronLog.Items.Clear();
+            });
+        }
+
+        private void SpeedSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            speed = Convert.ToInt32(speedSlider.Value);
+            speedLabel.Content = $"Speed: {Convert.ToInt32(speedSlider.Value)}";
+        }
+
+        public void UpdateTimeLabel(int closeTime)
+        {
+            Dispatcher.Invoke(() => 
+            {
+                timerLabel.Content = closeTime;
             });
         }
 
@@ -56,6 +78,7 @@ namespace Lab6_TheBar
         {
             runButton.Content = "Close Bar";
             optionsMenu.IsEnabled = false;
+            resetButton.IsEnabled = false;
             bar.OpenBar();
             runButton.Click -= RunButtonClick;
             runButton.Click += CloseBarClick;
@@ -64,6 +87,8 @@ namespace Lab6_TheBar
         private void CloseBarClick(object sender, RoutedEventArgs e)
         {
             runButton.Content = "Open Bar";
+            optionsMenu.IsEnabled = true;
+            resetButton.IsEnabled = true;
             bar.CloseBar();
             runButton.Click -= CloseBarClick;
             runButton.Click += RunButtonClick;
