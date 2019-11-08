@@ -36,7 +36,6 @@ namespace Lab6_TheBar
             bar = new Bar(this);
 
             runButton.Click += RunButtonClick;
-            resetButton.Click += ResetButtonClick;
             speedSlider.ValueChanged += SpeedSliderValueChanged;
         }
 
@@ -78,7 +77,6 @@ namespace Lab6_TheBar
         {
             runButton.Content = "Close Bar";
             optionsMenu.IsEnabled = false;
-            resetButton.IsEnabled = false;
             bar.OpenBar();
             runButton.Click -= RunButtonClick;
             runButton.Click += CloseBarClick;
@@ -87,8 +85,6 @@ namespace Lab6_TheBar
         private void CloseBarClick(object sender, RoutedEventArgs e)
         {
             runButton.Content = "Open Bar";
-            optionsMenu.IsEnabled = true;
-            resetButton.IsEnabled = true;
             bar.CloseBar();
             runButton.Click -= CloseBarClick;
             runButton.Click += RunButtonClick;
