@@ -20,7 +20,7 @@
         <Label x:Name="currentPatrionsLabel" Content="" HorizontalAlignment="Left" Margin="1309,333,0,0" VerticalAlignment="Top"/>
         <Label x:Name="timerLabel" Content="-----------" HorizontalAlignment="Left" Margin="840,537,0,0" VerticalAlignment="Top" Width="65"/>
         <ComboBox x:Name="optionsMenu" HorizontalAlignment="Left" Margin="859,136,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="OptionsMenuSelectionChanged" SelectedIndex="0"/>
-        <Slider x:Name="speedSlider" HorizontalAlignment="Left" Margin="828,631,0,0" VerticalAlignment="Top" Width="234" Minimum="0.5" Maximum="10" Value="1"/>
+        <Slider x:Name="speedSlider" HorizontalAlignment="Left" Margin="828,631,0,0" VerticalAlignment="Top" Width="234" Minimum="1" Maximum="10" Value="1"/>
         <Label x:Name="speedLabel" Content="Speed: 1" HorizontalAlignment="Left" Margin="919,605,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
