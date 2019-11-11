@@ -1,0 +1,9 @@
+Bedömning av Wilhelms och Simons kod:
+
++ Riktig snygg kod
++ Välstrukturerad. Enkelt att hitta funktionen man vill komma åt
++ Lättläst och inte redundant
+
++- Precis som vårt program så hade en statemachine underlättat mycket
+
+I det stora hela är koden prydlig och lättläst, gör det den ska och är svår att rubba.
